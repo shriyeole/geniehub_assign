@@ -5,23 +5,32 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "stud")
 public class students {
 	
-	private int id;
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+	private String id;
 	private String name;
 	private String city;
 	private String college;
+	private int salary;
 	
-	public students(int id, String name, String city, String college) {
+	public students(String id, String name, String city, String college) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.city = city;
 		this.college = college;
+		this.salary = salary;
 	}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {
