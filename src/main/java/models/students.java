@@ -5,13 +5,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "stud")
 public class students {
 	
-	public int getSalary() {
-		return salary;
-	}
-
-	public void setSalary(int salary) {
-		this.salary = salary;
-	}
 	private String id;
 	private String name;
 	private String city;
@@ -51,5 +44,10 @@ public class students {
 	public void setCollege(String college) {
 		this.college = college;
 	}
-	
+	public int getSalary() {
+		return salary;
+	}
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
 }
