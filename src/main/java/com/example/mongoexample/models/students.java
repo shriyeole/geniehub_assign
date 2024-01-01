@@ -1,4 +1,4 @@
-package models;
+package com.example.mongoexample.models;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -19,7 +19,6 @@ public class students {
 		this.college = college;
 		this.salary = salary;
 	}
-	
 	public String getId() {
 		return id;
 	}

@@ -1,9 +1,12 @@
-package com.example.mongoexample;
+package com.example.mongoexample.controllers;
 
 import java.util.Optional;
 
+
 import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +17,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import models.students;
+import com.example.mongoexample.models.students;
+import com.example.mongoexample.repository.StudentRepository;
+
+
 
 @RestController
-public class mycontroller {
-	private static final String id = null;
+public class stucontrollerimpl implements maincontroller {
+
 	@Autowired
 	private StudentRepository studentRepository;
 	
@@ -64,5 +71,12 @@ public class mycontroller {
 		{
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Student not found");
 		}
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<?> getUser(@PathVariable String id) {
+		Optional<students> studentsOptional = studentRepository.findById(id);
+		students students = studentsOptional.get();
+		return ResponseEntity.ok(students);
 	}
 }
