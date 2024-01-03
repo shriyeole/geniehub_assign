@@ -11,7 +11,7 @@ public class students {
 	private String college;
 	private int salary;
 	
-	public students(String id, String name, String city, String college) {
+	public students(String id, String name, String city, String college, int salary) {
 		super();
 		this.id = id;
 		this.name = name;
