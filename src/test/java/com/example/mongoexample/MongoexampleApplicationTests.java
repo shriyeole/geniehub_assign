@@ -53,10 +53,8 @@ class MongoexampleApplicationTests {
 
         when(studentRepository.save(mockStudent)).thenReturn(mockStudent);
 
-        
         ResponseEntity<?> responseEntity = stucontrollerimpl.addStud(mockStudent);
 
-        
         verify(studentRepository).save(mockStudent); 
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
         assertEquals("Student added successfully", responseEntity.getBody());

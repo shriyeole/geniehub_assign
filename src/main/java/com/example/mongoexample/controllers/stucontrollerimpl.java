@@ -28,27 +28,23 @@ public class stucontrollerimpl implements maincontroller {
 	@Autowired
 	private StudentRepository studentRepository;
 	
-	@PostMapping("/add")
 	public ResponseEntity<?> addStud(@RequestBody students students)
 	{
 		studentRepository.save(students);
         return ResponseEntity.status(HttpStatus.CREATED).body("Student added successfully");
 	}
 	
-	@GetMapping("/get")
 	public ResponseEntity<?> getStud()
 	{
 		return ResponseEntity.ok(this.studentRepository.findAll());
 	}
 	
-	@DeleteMapping("{id}")
 	public ResponseEntity<?> deletestu(@PathVariable String id)
 	{
 		studentRepository.deleteById(id);
 		return ResponseEntity.status(HttpStatus.OK).body("student with id "+ id +" deleted successfully");
 	}
 	
-	@PutMapping("/{id}")
 	public ResponseEntity<?> updatestu(@PathVariable String id,@RequestBody students updatestudent){
 		Optional<students> optionalStudent = studentRepository.findById(id);
 		
@@ -70,7 +66,6 @@ public class stucontrollerimpl implements maincontroller {
 		}
 	}
 	
-	@GetMapping("/{id}")
 	public ResponseEntity<?> getUser(@PathVariable String id) {
 		Optional<students> studentsOptional = studentRepository.findById(id);
 		students students = studentsOptional.get();
