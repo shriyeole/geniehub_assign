@@ -16,5 +16,9 @@ public class arrlist {
     l.add(50);
     l.clear();
     System.out.println(l);
+    String str = "Shri";
+    System.out.println(str);
+    str = "shrijeet";
+    System.out.println(str);
  }   
 }
